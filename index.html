@@ -1,0 +1,712 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="It is Online Shoing Site" content="shop all item">
+  <meta name="keywords" content="HTML, CSS, JavaScript, product, orders, shop, shopping for shop, delievery, trending">
+  <title>E-Shopper India</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color:whitesmoke;
+        }
+    .category-box {
+      border-radius: 10px;
+      padding: 15px;
+      background: #4a9bec;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .category-box:hover {
+      background: #0d6efd;
+      color: #fff;
+    }
+    .subscribe-section {
+      background: #d3e3f3;
+      padding: 40px 0;
+      border-radius: 8px;
+    }
+    .product-card {
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    /* 🌟 Glowing animation for brand */
+.animate-glow {
+  animation: glowBrand 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 15px #ff9800, 0 0 20px #ff5722;
+}
+
+@keyframes glowBrand {
+  from {
+    text-shadow: 0 0 5px #ffc107, 0 0 10px #ffc107, 0 0 15px #ff9800, 0 0 20px #ff5722;
+  }
+  to {
+    text-shadow: 0 0 10px #fff176, 0 0 20px #ffca28, 0 0 25px #ff9800, 0 0 30px #f57c00;
+  }
+}
+/* Hover underline for links */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ffc107;
+  transition: width 0.3s ease-in-out;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+    
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+.counter:nth-child(1) { animation-delay: 0.2s; }
+.counter:nth-child(2) { animation-delay: 0.4s; }
+.counter:nth-child(3) { animation-delay: 0.6s; }
+.counter:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 12px 15px;
+  border-radius: 50%;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+.whatsapp-float:hover {
+  background-color: #1ebe57;
+  text-decoration: none;
+}
+.bg-gradient-custom{
+  background: linear-gradient(90deg,#0d6efd,#6610f2);
+}
+.footer-gradient{
+  background: linear-gradient(120deg,#212529,#343a40);
+}
+ </style>
+</head>
+<body>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom sticky-top shadow-sm py-3 animated-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold fs-4 animate-glow text-warning" href="#"><i class="bi bi-shop"></i> E-Shopper</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="product detail.html">Product Detail</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages.html">Pages</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        </ul>
+              <!-- Right-side icons -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Like Icon -->
+        <li class="nav-item me-3">
+          <a class="nav-link position-relative" href="wishlist.html">
+            <i class="bi bi-heart fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </a>
+        </li>
+        <!-- Cart Icon -->
+        <li class="nav-item me-3">
+          <a class="nav-link position-relative" href="cart.html">
+            <i class="bi bi-cart3 fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+  </header>
+  <!-- Coupon / Offer Banner -->
+<div class="alert alert-warning alert-dismissible fade show text-center rounded-0 mb-0" role="alert">
+  🎁 <strong>Special Offer:</strong> Use code <span class="fw-bold text-danger">WELCOME10</span> for <strong>10% OFF</strong> your first purchase!
+  <button type="button" class="btn-close ms-2 position-absolute end-0 me-3" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    <!-- Carousel -->  <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="car1.webp" class="d-block w-100" alt="shop">
+      </div>
+      <div class="carousel-item">
+        <img src="car4.png" class="d-block w-100" alt="product">
+      </div>
+      <div class="carousel-item">
+        <img src="car5.jpg" class="d-block w-100" alt="delievery">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+    <!-- 🔢 Counters Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row text-center">
+
+      <div class="col-md-3 mb-4">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h2 class="counter text-primary">10,000+</h2>
+          <p class="mb-0 fw-bold">Products Sold</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h2 class="counter text-success">5,000+</h2>
+          <p class="mb-0 fw-bold">Happy Customers</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h2 class="counter text-warning">2,000+</h2>
+          <p class="mb-0 fw-bold">Orders Shipped</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <div class="bg-white p-4 rounded shadow-sm">
+          <h2 class="counter text-danger">500+</h2>
+          <p class="mb-0 fw-bold">Active Products</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- 🟦 Feature Boxes: Place this BELOW your carousel section -->
+<div class="container my-5">
+  <div class="row text-center g-4">
+
+    <div class="col-md-3 col-sm-6">
+      <div class="border rounded p-4 h-100">
+        <i class="bi bi-star-fill text-primary fs-1 mb-3"></i>
+        <h5 class="fw-bold">Quality Product</h5>
+        <p class="text-muted small">Only the best items selected for you.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="border rounded p-4 h-100">
+        <i class="bi bi-truck text-primary fs-1 mb-3"></i>
+        <h5 class="fw-bold">Free Shipping</h5>
+        <p class="text-muted small">Free delivery on orders above ₹499.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="border rounded p-4 h-100">
+        <i class="bi bi-arrow-repeat text-primary fs-1 mb-3"></i>
+        <h5 class="fw-bold">14-Day Return</h5>
+        <p class="text-muted small">Hassle-free returns within 14 days.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">   
+      <div class="border rounded p-4 h-100">
+        <i class="bi bi-headset text-primary fs-1 mb-3"></i>
+        <h5 class="fw-bold">24/7 Support</h5>
+        <p class="text-muted small">We’re here to help you anytime.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="alert alert-danger text-center fw-bold">
+  🕒 Hurry! Summer Sale Ends in 2 Days – Up to 50% OFF!
+</div>
+  </div>  <!-- Categories -->  <div class="container my-5">
+    <h3 class="text-center mb-4">Browse Categories</h3>
+    <div class="row text-center">
+      <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-person-fill"></i> Men</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-person-bounding-box"></i> Women</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-phone"></i> Electronics</div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-watch"></i> Accessories</div>
+      </div>
+       <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-shield-check"></i>Sports wear</div>
+      </div>
+       <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-life-preserver"></i>Swim wear</div>
+      </div>
+       <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-person"></i>Casual Dress</div>
+      </div>
+       <div class="col-md-3 mb-3">
+        <div class="category-box"><i class="bi bi-controller"></i>Toys</div>
+      </div>
+
+    </div>
+  </div>  <!-- Featured Products -->  <div class="container mt-5">
+    <h3 class="text-center mb-4">Featured Products</h3>
+    <div class="row">
+      <!-- Example product card, copy for 10 products -->
+      <div class="col-md-3 mb-4">
+        <!-- Product Card Example -->
+<div class="card">
+  <img src="1.jpg" class="card-img-top" alt="orders">
+  <div class="card-body">
+    <h5 class="card-title">Wireless Headphones</h5>
+    <h6 class="card-text text-danger">Crystal-clear sound, long battery life.</h6>
+    <p class="card-text">₹1999</p>
+    <a href="cart-product1.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4"><div class="card">
+  <img src="2.jpg" class="card-img-top" alt="trending">
+  <div class="card-body">
+    <h5 class="card-title">Smart Watch</h5>
+    <h6 class="card-text text-danger">Stay connected with health tracking features.</h6>
+    <p class="card-text">₹2499</p>
+    <a href="cart-product2.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+  </div>
+  </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="3.jpg" class="card-img-top" alt="product">
+  <div class="card-body">
+    <h5 class="card-title">Sporty Sneakers</h5>
+    <h6 class="card-text text-danger">Comfort and style in one perfect pair.</h6>
+    <p class="card-text">₹2999</p>
+    <a href="cart-product3.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="4.jpg" class="card-img-top" alt="shop">
+  <div class="card-body">
+    <h5 class="card-title">Travel Backpack</h5>
+    <h6 class="card-text text-danger">Waterproof, durable and trendy design.</h6>
+    <p class="card-text">₹1699</p>
+    <a href="cart-product4.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="5.jpg" class="card-img-top" alt="delievery">
+  <div class="card-body">
+    <h5 class="card-title">Sunglasses</h5>
+    <h6 class="card-text text-danger">Stylish Sunglasses</h6>
+    <p class="card-text">₹999</p>
+    <a href="cart-product5.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="6.jpg" class="card-img-top" alt="orders">
+  <div class="card-body">
+    <h5 class="card-title">Speakers</h5>
+    <h6 class="card-text text-danger">Compact, loud and portable fun.</h6>
+    <p class="card-text">₹1999</p>
+    <a href="cart-product6.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="7.jpg" class="card-img-top" alt="trending">
+  <div class="card-body">
+    <h5 class="card-title">Laptop stand</h5>
+    <h6 class="card-text text-danger">Ergonomic and adjustable for Comfort.</h6>
+    <p class="card-text">₹899</p>
+    <a href="cart-product7.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="8.jpg" class="card-img-top" alt="product">
+  <div class="card-body">
+    <h5 class="card-title">Smartphone</h5>
+    <h6 class="card-text text-danger">Fast, sleek and powerful for your needs.</h6>
+    <p class="card-text">₹29999</p>
+    <a href="cart-product8.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+  <img src="9.jpg" class="card-img-top" alt="shop">
+  <div class="card-body">
+    <h5 class="card-title">Digital Camera</h5>
+    <h6 class="card-text text-danger">Capture moments in stunning HD moments.</h6>
+    <p class="card-text">₹59999</p>
+    <a href="cart-product9.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+      <div class="col-md-3 mb-4">
+       <div class="card">
+  <img src="10.jpg" class="card-img-top" alt="delievery">
+  <div class="card-body">
+    <h5 class="card-title">Stylish T-shirt</h5>
+    <h6 class="card-text text-danger">Trendy,Unique and Fashionable</h6>
+    <p class="card-text">₹599</p>
+    <a href="cart-product10.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+      </div>
+       <div class="col-md-3 mb-4">
+       <div class="card">
+  <img src="11.jpg" class="card-img-top" alt="shopping for shop">
+  <div class="card-body">
+    <h5 class="card-title">Hair Dryer</h5>
+    <h6 class="card-text text-danger">Smooth,Compact and Adjustable with your style.</h6>
+    <p class="card-text">₹999</p>
+    <a href="cart-product11.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+       </div>
+        <div class="col-md-3 mb-4">
+       <div class="card">
+  <img src="12.jpg" class="card-img-top" alt="shop">
+  <div class="card-body">
+    <h5 class="card-title">Women Causal Dress</h5>
+    <h6 class="card-text text-danger">Trendy,Unique and Fashionable</h6>
+    <p class="card-text">₹1999</p>
+    <a href="cart-product12.html" class="btn btn-primary">Add to Cart</a>
+    <!-- Inside product card -->
+<a href="wishlist.html" class="btn btn-outline-danger btn-sm position-absolute top-0 end-0 m-2" title="Add to Wishlist">
+  <i class="bi bi-heart"></i>
+</a>
+  </div>
+</div>
+        </div>
+      
+      <!-- Repeat similar cards with different data -->
+    </div>
+  </div>
+  <!-- Trendy Products Section -->
+<section class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">🔥 Trendy Products</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+    <!-- Product 1 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="13.jpg" class="card-img-top" alt="trending">
+        <div class="card-body">
+          <h5 class="card-title">Stylish Sneakers</h5>
+          <p class="card-text text-muted">Trendy and comfortable sneakers for daily wear.</p>
+          <p class="fw-bold text-success">₹2,499</p>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+          <a href="cart-product13.html" class="btn btn-sm btn-outline-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+          <a href="wishlist.html" class="btn btn-sm btn-outline-danger"><i class="bi bi-heart"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="14.jpg" class="card-img-top" alt="trending">
+        <div class="card-body">
+          <h5 class="card-title">Boho Summer Dress</h5>
+          <p class="card-text text-muted">Perfect for vacations and weekend outings.</p>
+          <p class="fw-bold text-success">₹1,999</p>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+          <a href="cart-product14.html" class="btn btn-sm btn-outline-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+          <a href="wishlist.html" class="btn btn-sm btn-outline-danger"><i class="bi bi-heart"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="15.jpg" class="card-img-top" alt="trending">
+        <div class="card-body">
+          <h5 class="card-title">Smart Fitness Watch</h5>
+          <p class="card-text text-muted">Track your health in style with this sleek watch.</p>
+          <p class="fw-bold text-success">₹3,499</p>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+          <a href="cart-product15.html" class="btn btn-sm btn-outline-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+          <a href="wishlist.html" class="btn btn-sm btn-outline-danger"><i class="bi bi-heart"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="16.jpg" class="card-img-top" alt="trending">
+        <div class="card-body">
+          <h5 class="card-title">Noise Cancelling Headphones</h5>
+          <p class="card-text text-muted">Experience music like never before.</p>
+          <p class="fw-bold text-success">₹4,999</p>
+        </div>
+        <div class="card-footer bg-white d-flex justify-content-between">
+          <a href="cart-product16.html" class="btn btn-sm btn-outline-primary"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+          <a href="wishlist.html" class="btn btn-sm btn-outline-danger"><i class="bi bi-heart"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Daily Deal Section Start -->
+<div class="container my-5">
+  <h2 class="text-center mb-4">🔥 Deal of the Day</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card border-danger position-relative">
+        <span class="badge bg-danger position-absolute top-0 end-0 m-2">Deal of the Day</span>
+        <img src="25.webp" class="card-img-top" alt="trending">
+        <div class="card-body">
+          <h5 class="card-title">Combo Pack - Sportswear & Cap</h5>
+          <p class="card-text">Now just ₹899 <br><small class="text-muted">Limited Time Only</small></p>
+          <a href="shop.html" class="btn btn-outline-dark btn-sm">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Daily Deal Section End -->
+
+<!-- ⭐ Customer Testimonials -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Our Customers Say</h2>
+      <p class="text-muted">Trusted by thousands of happy shoppers</p>
+    </div>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active text-center">
+          <div class="mx-auto" style="max-width: 700px;">
+            <p class="fs-5 fst-italic">"Amazing quality and super fast delivery! This is now my go-to store for everything fashion."</p>
+            <div class="text-warning mb-2">
+              ★★★★★
+            </div>
+            <h5 class="mb-0">Priya Sharma</h5>
+            <small class="text-muted">Delhi, India</small>
+          </div>
+        </div>
+
+        <div class="carousel-item text-center">
+          <div class="mx-auto" style="max-width: 700px;">
+            <p class="fs-5 fst-italic">"Great customer service and smooth return process. Highly recommend!"</p>
+            <div class="text-warning mb-2">
+              ★★★★☆
+            </div>
+            <h5 class="mb-0">Ravi Mehta</h5>
+            <small class="text-muted">Mumbai, India</small>
+          </div>
+        </div>
+
+        <div class="carousel-item text-center">
+          <div class="mx-auto" style="max-width: 700px;">
+            <p class="fs-5 fst-italic">"Trendy products and affordable prices. I'm hooked!"</p>
+            <div class="text-warning mb-2">
+              ★★★★★
+            </div>
+            <h5 class="mb-0">Neha Verma</h5>
+            <small class="text-muted">Bengaluru, India</small>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+  
+  <!-- Subscribe Section -->  <div class="subscribe-section mt-5">
+    <div class="container text-center">
+      <h4>📬 Get Exclusive Offers!</h4>
+      <p>Subscribe to our newsletter for the latest updates and discounts.</p>
+      <form class="row g-3 justify-content-center">
+        <div class="col-auto">
+          <input type="email" class="form-control" placeholder="Enter your email">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+  
+  <!-- 🔻 Footer Section Start -->
+<footer class="bg-dark text-light pt-5 pb-4 footer-gradient">
+  <div class="container">
+    <div class="row">
+
+      <!-- About -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase mb-3">About EShopper</h5>
+        <p class="small">We offer high-quality products at the best prices. Trusted by thousands of customers across India.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase mb-3">Quick Links</h5>
+        <ul class="list-unstyled small">
+          <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+          <li><a href="shop.html" class="text-light text-decoration-none">Shop</a></li>
+          <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+          <li><a href="faq.html" class="text-light text-decoration-none">FAQ</a></li>
+          <li><a href="login.html" class="text-light text-decoration-none">Login</a></li>
+          <li><a href="register.html" class="text-light text-decoration-none">Register</a></li>
+        </ul>
+        <ul class="list-unstyled">
+  <li><a href="terms&conditions.html" class="text-muted">Terms & Conditions</a></li>
+  <li><a href="privacypolicy.html" class="text-muted">Privacy Policy</a></li>
+</ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase mb-3">Contact</h5>
+        <p class="small mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Dehradun, India</p>
+        <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i>+91 78199 78428</p>
+        <p class="small"><i class="bi bi-envelope-fill me-2"></i>support@eshopper.com</p>
+
+        <!-- Social Media Icons -->
+        <div class="mt-3">
+          <a href="#" class="text-light me-3 fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-light me-3 fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-light me-3 fs-5"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      </div>
+
+    <div class="text-center mt-4">
+  <img src="a.png" alt="Visa" style="height: 40px;">
+  <img src="b.png" alt="MasterCard" style="height: 40px;">
+  <img src="c.jpg" alt="UPI" style="height: 40px;">
+  <img src="d.png" alt="PayPal" style="height: 40px;">
+</div>
+
+    <hr class="bg-light">
+
+    <!-- Footer Bottom -->
+    <div class="text-center">
+      <p class="small mb-0">&copy; 2025 EShopper. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- 🔺 Footer Section End -->
+ <!-- Floating WhatsApp Button -->
+<a href="https://wa.me/917819978428" target="_blank" class="whatsapp-float">
+  <i class="bi bi-whatsapp"></i>
+</a>
+</body>
+</html>
